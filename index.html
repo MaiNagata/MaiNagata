@@ -1,13 +1,19 @@
 <script>
-var url = new Array;
-url[0] = "https://forms.gle/kcMeuvyvA3d9iYKf8";
-url[1] = "https://forms.gle/eEBfXdKKivnNjDpL6";
-url[2] = "https://forms.gle/rFeSY6Xas51dPLUQ9";
+var url = [
+    "https://forms.gle/kcMeuvyvA3d9iYKf8",
+    "https://forms.gle/eEBfXdKKivnNjDpL6",
+    "https://forms.gle/rFeSY6Xas51dPLUQ9"
+];
 
-function click() {
+function redirectToRandomURL() {
     var ran = Math.floor(Math.random() * url.length);
     location.href = url[ran];
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    var link = document.getElementById("randomLink");
+    link.addEventListener("click", redirectToRandomURL);
+});
 </script>
 
-<a href="javascript:click()">クリックしてGoogleフォームへ</a>
+<a href="#" id="randomLink">クリックしてGoogleフォームへ</a>
